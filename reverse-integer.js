@@ -10,33 +10,6 @@ console.log(reverseInteger(-250));
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function reverseInt(n) {
     let reversedInt = parseInt(String(n).split("").reverse().join(""));
 
