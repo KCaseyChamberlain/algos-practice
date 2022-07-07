@@ -8,13 +8,16 @@ var isValid = function (s) {
     }
     let stack = []
 
-    for (ch of s) {
-        if (hashMap[ch]) stack.push(hashMap[ch])
-        else if (stack.length > 0 && stack[stack.length - 1] === ch) stack.pop()
-        else return false
+    for (let ch of s) {
+        if (hashMap[ch]) {
+            stack.push(hashMap[ch])
+        } else if (stack.length > 0 && stack[stack.length - 1] === ch) {
+            stack.pop()
+        } else {
+            return false
+        }
     }
-    if (stack.length === 0) return true
-    else return false
+    return stack.length === 0
 };
 
 console.log(
