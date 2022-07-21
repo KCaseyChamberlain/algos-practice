@@ -1,7 +1,7 @@
 # Algorithm Practice
 
 ### Description
-This repository is simply a collection of algorithim/data structure solutions.
+This repository is simply a collection of algorithm/data structure solutions to help me achieve my first web developer working position.
 
 ### Application Demo
 ![Homer Simpson](./assets/demo.gif)
