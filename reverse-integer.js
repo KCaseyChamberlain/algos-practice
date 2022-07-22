@@ -6,17 +6,3 @@ function reverseInteger(n) {
 }
 
 console.log(reverseInteger(-250));
-
-
-
-
-function reverseInt(n) {
-    let reversedInt = parseInt(String(n).split("").reverse().join(""));
-
-    if (n >= 0)
-        console.log(reversedInt)
-    else
-        console.log(reversedInt * -1)
-};
-
-reverseInt(-221)
