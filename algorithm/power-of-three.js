@@ -1,5 +1,5 @@
-let n = 81
-// let n = 9
+// let n = 81
+let n = 9
 
 var isPowerOfThree = function(n) {
     if(n == 0){
