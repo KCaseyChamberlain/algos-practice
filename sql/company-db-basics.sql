@@ -21,11 +21,13 @@ ALTER TABLE employee
 ADD FOREIGN KEY(branch_id)
 REFERENCES branch(branch_id)
 ON DELETE SET NULL;
+-- adds branch_id as foreign key
 
 ALTER TABLE employee
 ADD FOREIGN KEY(super_id)
 REFERENCES employee(emp_id)
 ON DELETE SET NULL;
+-- adds super_id as foreign key
 
 CREATE TABLE client (
   client_id INT PRIMARY KEY,
@@ -119,3 +121,80 @@ INSERT INTO works_with VALUES(105, 404, 33000);
 INSERT INTO works_with VALUES(107, 405, 26000);
 INSERT INTO works_with VALUES(102, 406, 15000);
 INSERT INTO works_with VALUES(105, 406, 130000);
+
+
+
+
+
+
+SELECT first_name AS forename, last_name AS surname
+FROM employee;
+-- selects the first_name(s) and last_name(s) from the employee table
+-- AS forename and surname
+
+SELECT DISTINCT sex
+FROM employee;
+-- lists all the sex options listed in the employee table
+-- //should return M & F
+
+
+
+-- SQL functions
+-- find the number of employees?
+SELECT COUNT(emp_id)
+FROM employee;
+-- counts the emp_id(s)
+-- //returns 9
+
+-- find the number of female employees born after 1970?
+SELECT COUNT(emp_id)
+FROM employee
+WHERE sex = 'F' AND birth_date > "1971-01-01";
+-- counts the employees that are female and born after 1970
+-- //returns 2
+
+-- find the average of all employees salary?
+SELECT AVG(salary)
+FROM employee;
+-- finds the average of all employees salaries.
+-- //returns 92,888
+
+-- find the sum of all employees salary?
+SELECT SUM(salary)
+FROM employee;
+-- returns 836,000
+
+-- how many females and males are there?
+SELECT COUNT(sex), sex
+FROM employee
+GROUP BY sex;
+-- returns: 3 F, 6 M
+
+-- aggregation
+-- find the total sales of each salesman
+SELECT SUM(total_sales), emp_id
+FROM works_with
+GROUP BY emp_id;
+-- // returns each the total sales for each emp_id
+
+-- find the total of how much each client spent?
+SELECT SUM(total_sales), client_id
+FROM works_with
+GROUP BY client_id;
+-- //returns the total sales the client spent by their client_id
+
+-- WILDCARDS
+-- % any number of characters
+-- _ one character
+
+LIKE
+-- follows pattern
+
+select employees born in October
+SELECT *
+FROM employee
+WHERE birth_date LIKE '____-10%';
+-- //returns jim who is born in october
+
+
+-- Unions 
