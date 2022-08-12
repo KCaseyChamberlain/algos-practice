@@ -197,4 +197,83 @@ WHERE birth_date LIKE '____-10%';
 -- //returns jim who is born in october
 
 
--- Unions 
+-- Union
+SELECT first_name 
+FROM employee
+UNION
+SELECT branch_name
+FROM branch;
+-- returns the employee table's first name column, and branch_names 
+-- column as one long column
+
+-- find a list of all the money spent by the company?
+SELECT salary
+FROM employee
+UNION
+SELECT total_sales
+FROM works_with;
+-- returns a list of each expense
+
+
+-- Join
+-- joins tables together by row based on related columns
+-- by default JOIN is an INNER JOIN
+SELECT employee.emp_id, employee.first_name, branch.branch_name
+FROM employee
+RIGHT JOIN branch
+ON employee.emp_id = branch.mgr_id;
+-- returns emp_id, first_name, and branch_name of the manager of that
+-- branch AS WELL as all the other branch_names without managers.
+
+
+-- NESTED QUERIES
+-- the second query's result will be based on the first query
+
+-- find full names of all employees who have sold over 30000 to a single client?
+SELECT employee.first_name, employee.last_name
+FROM employee
+WHERE employee.emp_id IN (
+    SELECT works_with.emp_id
+    FROM works_with
+    WHERE works_with.total_sales > 30000
+);
+-- //first we find the emp_id from the works_with table with total_sales
+-- of > 30000
+-- //second we take the employee first_name and last_name that matches 
+-- the nested emp_id.
+
+
+-- find all clients who are handled by the branch that Michael scott manages (using micheal's emp_id)?
+SELECT client.client_name
+FROM client
+WHERE client.branch_id IN (
+    SELECT branch.branch_id
+    FROM branch
+    WHERE branch.mgr_id = 102
+);
+-- Micheal is listed as the mgr_id in the branch table.
+
+-- where 102 is listed as the mgr_id in the branch table select
+-- that branch_id
+-- AS WELL AS
+-- that branch.branch_id matches the client.branch_id in the client
+--  table,
+-- //return the client_name
+
+-- ON DELETE with foreign key
+ON DELETE SET NULL
+-- //sets related table's foreign key to null
+ON DELETE CASCADE
+-- //deletes all rows within related tables
+
+
+-- TRIGGER
+-- //when something happens do this.
+DELIMITTER $$
+CREATE
+  TRIGGER my_trigger BEFORE INSERT
+  ON employee
+  FOR EACH ROW BEGIN
+    INSERT INTO trigger_test VALUES('added new employee');
+  END$$
+DELIMITTER ;
