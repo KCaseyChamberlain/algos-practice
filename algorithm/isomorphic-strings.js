@@ -1,5 +1,5 @@
-let s = "paper"
-let t = "title"
+let s = "too"
+let t = "moo"
 
 var isIsomorphic = function (s, t) {
     if (s.length !== t.length) return false;
