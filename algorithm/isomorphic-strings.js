@@ -13,12 +13,12 @@ var isIsomorphic = function (s, t) {
 
         if (!mapS[charS]) mapS[charS] = charT;
         if (!mapT[charT]) mapT[charT] = charS;
+        console.log(charT)
 
         if (mapS[charS] !== charT || mapT[charT] !== charS) {
             return false;
         }
     }
-
     return true;
 };
 
