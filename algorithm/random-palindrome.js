@@ -12,7 +12,9 @@ function isPalindrome(str) {
     // c:1
     // maps the characters and their count appearance
     for (let s of str) {
-        count[s] = count[s] ? count[s] + 1 : 1;
+        count[s] = count[s] ?
+        count[s] + 1
+        : 1;
     }
 
     // orders characters by highest count
