@@ -1,4 +1,4 @@
-public class test {
+public class switchCase {
 
    public static void main(String args[]) {
       // char grade = args[0].charAt(0);
