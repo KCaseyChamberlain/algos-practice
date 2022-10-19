@@ -1,5 +1,27 @@
 let str = 'dancing queen';
 
+// for of if else
+function stringCount(str){
+    let hashMap = {};
+
+    for(let s of str){
+        console.log(s)
+        if(!hashMap[s]){
+            hashMap[s] = 1;
+        }else{
+            hashMap[s] += 1;
+        }
+    }
+
+    return hashMap;
+};
+
+console.log(
+    stringCount(str)
+);
+
+
+// for if else
 function stringCount(str){
     let hashMap = {};
 
@@ -15,6 +37,14 @@ function stringCount(str){
     return hashMap;
 };
 
-console.log(
-    stringCount(str)
-);
+
+// for of ternary
+function stringCount(str) {
+    let hashMap = {}
+
+    for (let s of str) {
+        hashMap[s] = (!hashMap[s]) ? 1 : hashMap[s] + 1;
+    }
+
+    return hashMap
+}
