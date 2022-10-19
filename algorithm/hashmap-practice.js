@@ -1,16 +1,20 @@
-let str = 'slice'
+let str = 'dancing queen';
 
-function hashMapCount(str) {
-    let hashMap = {}
+function stringCount(str){
+    let hashMap = {};
 
-    for (let s of str) {
-        hashMap[s] = hashMap[s] ? hashMap[s] + 1
-            : 1;
+    for(let i = 0; i < str.length; i++){
+
+        if(!hashMap[str[i]]){
+            hashMap[str[i]] = 1;
+        }else{
+            hashMap[str[i]] += 1;
+        }
     }
 
-    return hashMap
-}
+    return hashMap;
+};
 
 console.log(
-    hashMapCount(str)
-)
+    stringCount(str)
+);
