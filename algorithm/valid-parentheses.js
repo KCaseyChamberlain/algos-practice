@@ -1,4 +1,4 @@
-s = "[({})]"
+str = "[({})]"
 
 var isValid = function (s) {
     const hashMap = {
@@ -8,7 +8,7 @@ var isValid = function (s) {
     }
     let stack = []
 
-    for (let ch of s) {
+    for (let ch of str) {
         if (hashMap[ch]) {
             stack.push(hashMap[ch])
         } else if (stack.length > 0 && stack[stack.length - 1] === ch) {
@@ -21,5 +21,5 @@ var isValid = function (s) {
 };
 
 console.log(
-    isValid(s)
+    isValid(str)
 )

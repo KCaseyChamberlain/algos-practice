@@ -24,7 +24,7 @@ function rearrangedPossiblePalindrome(str) {
     if (oddCount > 1) {
         return false
     } else {
-        let result = []
+        let result = [];
 
         for (let char in hashMap) {
             // the palindrome will be mapped one half at a time
