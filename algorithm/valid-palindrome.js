@@ -6,14 +6,12 @@ let s = "A man, a plan, a canal: Panama"
 var isPalindrome = function (s) {
     let hashMap = {}
 
-    for (ch of s) {
-        if (ch == ) {
-// turn uppercase lowercase
-// remove all non-alphanumeric characters
-        }
-    }
-    return s
-};
+    s = s.toLowerCase()
+    s = s.replace(/[^a-z0-9-]/g, '')
+    
+return s
+
+}
 
 console.log(
     isPalindrome(s)
