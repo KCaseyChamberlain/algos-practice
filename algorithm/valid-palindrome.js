@@ -5,6 +5,8 @@ let s = "A man, a plan, a canal: Panama";
 
 var isPalindrome = function (s) {
     let hashMap = {};
+    let oddCount = 0;
+
     // convert string to lowercase and non-alphanumeric characters
     s = s.toLowerCase().replace(/[^a-z0-9-]/g, '');
 
@@ -12,9 +14,14 @@ var isPalindrome = function (s) {
     for (ch of s) {
         hashMap[ch] = (!hashMap[ch]) ? 1 : hashMap[ch] += 1;
     }
-    console.log(hashMap);
 
-    return s;
+    for (ct in hashMap) {
+        if (hashMap[ct] % 2 != 0) {
+            oddCount += 1;
+        }
+    }
+
+    return (oddCount < 2) ? true : false;
 };
 
 console.log(
